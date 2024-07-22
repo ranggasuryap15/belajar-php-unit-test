@@ -6,6 +6,16 @@
       "email": "ranggasurya.313@gmail.com"
     }
   ],
+  "autoload": {
+    "psr-4": {
+      "ProgrammerZamanNow\\Test\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ProgrammerZamanNow\\Test\\": "tests"
+    }
+  },
   "require": {
     "php": ">=8.0"
   },
