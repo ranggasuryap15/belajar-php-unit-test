@@ -29,4 +29,14 @@ class MathTest extends TestCase
 
         ];
     }
+
+    /**
+     * ini untuk kasus sederhana, jika kasusnya semakin kompleks maka lebih baik menggunakan function data provider
+     * @testWith [[5,5], 10]
+     *           [[5,5,5], 15]
+     */
+    public function testWith(array $values, int $expected)
+    {
+        self::assertEquals($expected, Math::sum($values));
+    }
 }
