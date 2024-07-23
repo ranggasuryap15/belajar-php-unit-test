@@ -25,4 +25,21 @@ class CounterTest extends TestCase
         $counter->increment();
         Assert::assertEquals(1, $counter->count());
     }
+
+    public function testFirst(): Counter
+    {
+        $counter = new Counter();
+        $counter->increment();
+        Assert::assertEquals(1, $counter->count());
+        return $counter;
+    }
+
+    /**
+     * @depends testFirst
+     */
+    public function testSecond(Counter $counter)
+    {
+        $counter->increment();
+        Assert::assertEquals(2, $counter->count());
+    }
 }
