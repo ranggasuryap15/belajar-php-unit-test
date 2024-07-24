@@ -23,6 +23,12 @@ class CounterTest extends TestCase
         Assert::markTestIncomplete("Belum selesai");
     }
 
+    public function testIncrement2()
+    {
+        Assert::assertEquals(0, $this->counter->count());
+        Assert::markTestSkipped("Belum selesai");
+    }
+
     public function testCounter()
     {
         $this->counter->increment();
