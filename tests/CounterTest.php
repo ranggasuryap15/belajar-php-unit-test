@@ -9,11 +9,18 @@ class CounterTest extends TestCase
 {
     // nama function diawali dengan testABC atau bisa menggunakan annotations @test
 
+    private Counter $counter;
+
+    // set up selalu dijalankan sebelum function test dijalankan
+    protected function setUp(): void
+    {
+        $this->counter = new Counter();
+    }
+
     public function testCounter()
     {
-        $counter = new Counter();
-        $counter->increment();
-        Assert::assertEquals(1, $counter->count());
+        $this->counter->increment();
+        Assert::assertEquals(1, $this->counter->count());
     }
 
     /**
@@ -21,17 +28,15 @@ class CounterTest extends TestCase
      */
     public function increment()
     {
-        $counter = new Counter();
-        $counter->increment();
-        Assert::assertEquals(1, $counter->count());
+        $this->counter->increment();
+        Assert::assertEquals(1, $this->counter->count());
     }
 
     public function testFirst(): Counter
     {
-        $counter = new Counter();
-        $counter->increment();
-        Assert::assertEquals(1, $counter->count());
-        return $counter;
+        $this->counter->increment();
+        Assert::assertEquals(1, $this->counter->count());
+        return $this->counter;
     }
 
     /**
@@ -41,5 +46,18 @@ class CounterTest extends TestCase
     {
         $counter->increment();
         Assert::assertEquals(2, $counter->count());
+    }
+
+    protected function tearDown(): void
+    {
+        echo "tearDown" . PHP_EOL;
+    }
+
+    /**
+     * @after
+     */
+    protected function after(): void
+    {
+        echo "after" . PHP_EOL;
     }
 }
