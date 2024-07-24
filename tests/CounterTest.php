@@ -72,4 +72,12 @@ class CounterTest extends TestCase
     {
         echo "after" . PHP_EOL;
     }
+
+    /**
+     * @requires OSFAMILY Windows
+     */
+    public function testOnlyOnWindows()
+    {
+        Assert::assertTrue(true, "testOnlyOnWindows");
+    }
 }
