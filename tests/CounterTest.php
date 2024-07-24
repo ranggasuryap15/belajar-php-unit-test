@@ -17,6 +17,12 @@ class CounterTest extends TestCase
         $this->counter = new Counter();
     }
 
+    public function testIncrement()
+    {
+        Assert::assertEquals(0, $this->counter->count());
+        Assert::markTestIncomplete("Belum selesai");
+    }
+
     public function testCounter()
     {
         $this->counter->increment();
